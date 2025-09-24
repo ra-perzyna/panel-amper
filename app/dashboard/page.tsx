@@ -11,10 +11,10 @@ export default function DashboardPage() {
   const sp = useSearchParams();
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (!data.session) router.replace('/login');
-      else setReady(true);
-    });
+   supabase.auth.getSession().then(({ data }: any) => {
+  if (!data?.session) router.replace('/login');
+  else setReady(true);
+});
   }, [router, supabase]);
 
   if (!ready) return <div>Ładowanie…</div>;
