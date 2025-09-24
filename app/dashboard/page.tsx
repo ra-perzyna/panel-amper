@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { createClient } from '@/lib/supabase-browser';
+import { createClient } from '../../lib/supabase-browser';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function DashboardPage() {
