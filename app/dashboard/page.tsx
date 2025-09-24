@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { createClient } from '../../lib/supabase-browser';
 import { useRouter } from 'next/navigation';
-import type { Session } from '@supabase/supabase-js';
+import type { Session, AuthSessionResponse } from '@supabase/supabase-js';
 
 // FullCalendar
 import FullCalendar from '@fullcalendar/react';
@@ -33,7 +33,7 @@ export default function DashboardPage() {
 
   // auth check
   useEffect(() => {
-    supabase.auth.getSession().then((res) => {
+    supabase.auth.getSession().then((res: AuthSessionResponse) => {
       const session: Session | null = res.data.session;
       if (!session) router.replace('/login');
       else setReady(true);
